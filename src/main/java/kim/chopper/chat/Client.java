@@ -53,11 +53,10 @@ public class Client {
                 if (data.contains(":")) {
                     String[] dataArr = data.split(":");
                     String msg = dataArr[1].trim();
-                    if (msg.equals("newUser")) {
+                    if (msg.equals("login")) {
                         nickName = dataArr[0].trim();
-                    } else {
-                        repository.save(new Chat(nickName, msg, address, portNumber));
                     }
+                    repository.save(new Chat(nickName, msg, address, portNumber));
                 }
                 // 받은 데이터를 현재 접속한 모든 클라이언트에게 전달
                 for (Client client : clientList) {

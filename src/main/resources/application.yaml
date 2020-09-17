@@ -17,6 +17,7 @@ logging:
   level:
     kim:
       chopper: trace
+filter
   file:
     name: chat.log
 ---
