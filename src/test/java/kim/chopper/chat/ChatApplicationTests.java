@@ -7,12 +7,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ChatApplicationTests {
 
-    @Autowired
-    private ChatRepository repository;
+//    @Autowired
+//    private ChatRepository repository;
 
     @Test
     void contextLoads() {
-        repository.save(new Chat("miso", "미소의 세상2"));
+//        repository.save(new Chat("miso", "미소의 세상2"));
     }
 
 }

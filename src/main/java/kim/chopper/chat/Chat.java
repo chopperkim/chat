@@ -13,15 +13,19 @@ public class Chat {
     private Long seq;
     private String nickName;
     private String contents;
+    private String address;
+    private int portNumber;
     private Date createDate;
 
     public Chat() {
 
     }
 
-    public Chat(String nickName, String contents) {
+    public Chat(String nickName, String contents, String address, int portNumber) {
         this.nickName = nickName;
         this.contents = contents;
+        this.address = address;
+        this.portNumber = portNumber;
     }
 
     public Long getSeq() {
@@ -48,6 +52,22 @@ public class Chat {
         this.contents = contents;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getPortNumber() {
+        return portNumber;
+    }
+
+    public void setPortNumber(int portNumber) {
+        this.portNumber = portNumber;
+    }
+
     public Date getCreateDate() {
         return createDate;
     }
@@ -61,15 +81,17 @@ public class Chat {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Chat chat = (Chat) o;
-        return seq.equals(chat.seq) &&
-                nickName.equals(chat.nickName) &&
+        return portNumber == chat.portNumber &&
+                Objects.equals(seq, chat.seq) &&
+                Objects.equals(nickName, chat.nickName) &&
                 Objects.equals(contents, chat.contents) &&
-                createDate.equals(chat.createDate);
+                Objects.equals(address, chat.address) &&
+                Objects.equals(createDate, chat.createDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(seq, nickName, contents, createDate);
+        return Objects.hash(seq, nickName, contents, address, portNumber, createDate);
     }
 
     @Override
@@ -78,6 +100,8 @@ public class Chat {
                 .add("seq=" + seq)
                 .add("nickName='" + nickName + "'")
                 .add("contents='" + contents + "'")
+                .add("address='" + address + "'")
+                .add("portNumber=" + portNumber)
                 .add("createDate=" + createDate)
                 .toString();
     }
